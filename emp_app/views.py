@@ -27,10 +27,10 @@ def add_emp(request):
         phone = int(request.POST['phone'])
         dept = int(request.POST['dept'])
         role = int(request.POST['role'])
-        new_emp = Employee(first_name= first_name, last_name=last_name, salary=salary, bonus=bonus, phone=phone, dept_id = dept, role_id = role, hire_date = datetime.now())
+        new_emp = Employee(first_name=first_name, last_name=last_name, salary=salary, bonus=bonus, phone=phone, dept_id = dept, role_id = role, hire_date = datetime.now())
         new_emp.save()
         return HttpResponse('Employee added Successfully')
-    elif request.method=='GET':
+    elif request.method == 'GET':
         return render(request, 'add_emp.html')
     else:
         return HttpResponse("An Exception Occured! Employee Has Not Been Added")
@@ -48,7 +48,7 @@ def remove_emp(request, emp_id = 0):
     context = {
         'emps': emps
     }
-    return render(request, 'remove_emp.html',context)
+    return render(request, 'remove_emp.html', context)
 
 
 def filter_emp(request):
