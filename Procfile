@@ -1,0 +1,3 @@
+web: gunicorn office_emp_proj.wsgi --log-file - --log-level debug
+python manage.py collectstatic --noinput
+manage.py migrate
